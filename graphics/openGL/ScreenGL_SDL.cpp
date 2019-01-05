@@ -201,6 +201,7 @@ char mapSDLKeyToASCII( int inSDLKey );
 static unsigned char keyMap[256];
 static char keyMapOn = true;
 
+long timeSinceLastFrameMS = 0;
 
 // prototypes
 /*
@@ -1671,16 +1672,23 @@ void ScreenGL::start() {
     // can be negative (add to next sleep)
     int oversleepMSec = 0;
 
+    timeSec_t frameStartSec;
+    unsigned long frameStartMSec;
+	unsigned long oldFrameStart;
+
+    Time::getCurrentTime( &frameStartSec, &frameStartMSec );
 
     
     // main loop
     while( true ) {
-        
-        timeSec_t frameStartSec;
-        unsigned long frameStartMSec;
-        
+
+		oldFrameStart = frameStartMSec;
+
         Time::getCurrentTime( &frameStartSec, &frameStartMSec );
 
+		timeSinceLastFrameMS = frameStartMSec - oldFrameStart;
+		if( timeSinceLastFrameMS < 0 )
+			timeSinceLastFrameMS = 0;
 
         // pre-display first, this might involve a sleep for frame timing
         // purposes
