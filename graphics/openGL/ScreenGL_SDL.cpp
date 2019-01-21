@@ -2806,19 +2806,36 @@ void callbackPassiveMotion( int inX, int inY ) {
 	
 	
 void callbackMouse( int inButton, int inState, int inX, int inY ) {
-	
-    // ignore wheel events
-    if( inButton == SDL_BUTTON_WHEELUP ||
-        inButton == SDL_BUTTON_WHEELDOWN ) {
-        return;
-        }
-    
-    if( inButton == SDL_BUTTON_RIGHT ) {
-        currentScreenGL->mLastMouseButtonRight = true;
-        }
-    else {
-        currentScreenGL->mLastMouseButtonRight = false;
-        }
+
+	currentScreenGL->mLastMouseButtonRight = false;
+
+	switch( inButton )
+	{
+		case SDL_BUTTON_LEFT:
+			currentScreenGL->mLastMouseButton = MouseButton::LEFT;
+			break;
+
+		case SDL_BUTTON_MIDDLE:
+			currentScreenGL->mLastMouseButton = MouseButton::MIDDLE;
+			break;
+
+		case SDL_BUTTON_RIGHT:
+			currentScreenGL->mLastMouseButtonRight = true;
+			currentScreenGL->mLastMouseButton = MouseButton::RIGHT;
+			break;
+
+		case SDL_BUTTON_WHEELUP:
+			currentScreenGL->mLastMouseButton = MouseButton::WHEELUP;
+			break;
+
+		case SDL_BUTTON_WHEELDOWN:
+			currentScreenGL->mLastMouseButton = MouseButton::WHEELDOWN;
+			break;
+
+		default:
+			currentScreenGL->mLastMouseButton = MouseButton::NONE;
+			break;
+	}
     
 
     if( currentScreenGL->mRecordingEvents &&

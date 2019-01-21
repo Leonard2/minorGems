@@ -167,6 +167,19 @@ typedef struct SocketEvent {
 
 
 
+namespace MouseButton
+{
+enum
+{
+	NONE,
+	LEFT,
+	MIDDLE,
+	RIGHT,
+	WHEELUP,
+	WHEELDOWN,
+};
+}
+
 /**
  * Object that handles general initialization of an OpenGL screen.
  *
@@ -664,6 +677,7 @@ class ScreenGL {
         char isLastMouseButtonRight() {
             return mLastMouseButtonRight;
             }
+		int getLastMouseButton() { return mLastMouseButton; }
 
 
 
@@ -841,6 +855,7 @@ class ScreenGL {
 
 
         char mLastMouseButtonRight;
+		int mLastMouseButton;
         
         // for playing back minimized window state
         char mLastMinimizedStatus;

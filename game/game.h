@@ -9,6 +9,7 @@
 
 #include "doublePair.h"
 #include "minorGems/graphics/Image.h"
+#include "minorGems/graphics/openGL/ScreenGL.h"
 
 
 
@@ -160,6 +161,7 @@ void pointerUp( float inX, float inY );
 // called by game to check which button was pressed
 // for now, can only differentiate right clicks from other clicks
 char isLastMouseButtonRight();
+int getLastMouseButton();
 
 
 

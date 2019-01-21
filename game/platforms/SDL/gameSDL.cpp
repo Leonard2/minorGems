@@ -3958,6 +3958,10 @@ char isShiftKeyDown() {
 char isLastMouseButtonRight() {
     return screen->isLastMouseButtonRight();
     }
+int getLastMouseButton()
+{
+	return screen->getLastMouseButton();
+}
 
 
 
