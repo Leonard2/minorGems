@@ -88,6 +88,9 @@ class Font {
         // draws sprite centered on inPosition with no spacing adjustments
         void drawCharacterSprite( unsigned char inC, doublePair inPosition );
 
+		void setScaleFactor( double newFac );
+		double getScaleFactor();
+
     private:        
         
         // returns x coordinate to right of drawn character

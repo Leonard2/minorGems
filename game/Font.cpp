@@ -635,4 +635,14 @@ void Font::setMinimumPositionPrecision( double inMinimum ) {
     }
 
 
+void Font::setScaleFactor( double newFac )
+{
+	mScaleFactor = newFac;
+}
+
+double Font::getScaleFactor()
+{
+	return mScaleFactor;
+}
+
 
