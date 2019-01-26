@@ -86,6 +86,12 @@ class SpriteGL{
                    FloatColor inCornerColors[4],
                    char inLinearMagFilter = false,
                    char inMipMapFilter = false );
+
+		void draw(	int inFrame,
+					doublePair inCornerPos[4],
+					doublePair inTexCoords[4],
+					char inLinearMagFilter = false,
+					char inMipMapFilter = false );
         
         
 
@@ -226,7 +232,8 @@ class SpriteGL{
                           char inMipMapFilter,
                           double inRotation,
                           char inFlipH,
-                          char inComputeCornerPos = true );
+                          char inComputeCornerPos = true,
+						  char inComputeTexCoords = true );
         
 
 

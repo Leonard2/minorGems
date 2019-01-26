@@ -752,6 +752,18 @@ void drawSprite( SpriteHandle inSprite, doublePair inCornerPos[4],
     numSpritesDrawn++;
     }
 
+void drawSprite( SpriteHandle inSprite, doublePair inCornerPos[4], 
+                 doublePair inTexCoords[4] ) {
+    SpriteGL *sprite = (SpriteGL *)inSprite;
+    
+    sprite->draw( 0,
+                  inCornerPos,
+                  inTexCoords,
+                  linearTextureFilterOn, mipMapTextureFilterOn );
+    
+    numSpritesDrawn++;
+    }
+
 
 
 void drawSpriteAlphaOnly( SpriteHandle inSprite, doublePair inCenter, 
