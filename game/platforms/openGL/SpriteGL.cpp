@@ -361,6 +361,10 @@ SpriteGL::SpriteGL( char inAlphaOnly,
     }
 
 
+void SpriteGL::setWrapping(	char inHorizontal,
+							char inVertical ) {
+	mTexture->setWrapping( inHorizontal, inVertical );
+	}
 
 
 SpriteGL::~SpriteGL() {

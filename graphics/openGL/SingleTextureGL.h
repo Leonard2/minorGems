@@ -160,7 +160,11 @@ class SingleTextureGL {
                              unsigned int inHeight,
                              char inExpandEdge = false );        
 
-		
+
+		void setWrapping (	char inHorizontal,
+							char inVertical );
+
+
 		/**
 		 * Enables this texture.
 		 */

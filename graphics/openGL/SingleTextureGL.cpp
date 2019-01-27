@@ -446,6 +446,23 @@ void SingleTextureGL::setTextureData( unsigned char *inBytes,
 	}
 
 
+void SingleTextureGL::setWrapping(	char inHorizontal,
+									char inVertical ) {
+
+	glBindTexture( GL_TEXTURE_2D, mTextureID );
+
+    int error = glGetError();
+	if( error != GL_NO_ERROR ) {		// error
+		printf( "Error binding to texture id %d, error = %d\n",
+                (int)mTextureID,
+                error );
+		}
+
+	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, inHorizontal ? GL_REPEAT : GL_CLAMP_TO_EDGE );
+	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, inVertical ? GL_REPEAT : GL_CLAMP_TO_EDGE );
+	}
+
+
 void SingleTextureGL::replaceTextureData( unsigned char *inBytes,
                                           char inAlphaOnly,
                                           unsigned int inWidth, 

@@ -666,6 +666,11 @@ void setSpriteCenterOffset( SpriteHandle inSprite, doublePair inOffset ) {
 
 
 
+void setSpriteWrapping( SpriteHandle inSprite, char inHorizontal, char inVertical ) {
+	SpriteGL *sprite = (SpriteGL *)inSprite;
+	sprite->setWrapping( inHorizontal, inVertical );
+	}
+
 
 
 void startCountingSpritePixelsDrawn() {

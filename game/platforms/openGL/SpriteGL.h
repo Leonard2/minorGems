@@ -148,6 +148,9 @@ class SpriteGL{
             }
 
 
+		void setWrapping(	char inHorizontal,
+							char inVertical );
+
 
         static void startCountingPixelsDrawn() {
             sCountingPixels = true;

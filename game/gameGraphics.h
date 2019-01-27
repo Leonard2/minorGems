@@ -204,6 +204,8 @@ int getSpriteHeight( SpriteHandle inSprite );
 void setSpriteCenterOffset( SpriteHandle inSprite, doublePair inOffset );
 
 
+void setSpriteWrapping ( SpriteHandle inSprite, char inHorizontal, char inVertical );
+
 
 void startCountingSpritePixelsDrawn();
 
